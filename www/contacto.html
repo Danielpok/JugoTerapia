@@ -15,7 +15,7 @@
     <nav class="back-gris padding-largo text-center">
       <ul class="sin-punto">
         <li class="col-md-3 lobster inline-block tambarra">
-          <a href="index.html" class="verde">Jugo Terapia</a>
+          <a href="index.html" class="verde">JugoTerapia</a>
         </li>
         <li class="col-md-3 lato inline-block tambarra">
           <a href="menu.html" class="grey">Productos</a>
@@ -31,6 +31,7 @@
           <p><strong>1o. de Mayo y Calle 16, Chihuahua, Chih</strong>.</p>
       </div>
       <div id="map">
+        <article>
         <script>
         L.mapbox.accessToken = 'pk.eyJ1IjoiZGFuaWVscG9rIiwiYSI6ImNpZnN4czR4bTBjZzF0Z2x5bGk4aXdlZjYifQ.ApDqAmmFp3h0sLh0x0-IiA';
         var map = L.mapbox.map('map', 'mapbox.streets')
@@ -46,22 +47,20 @@
           "marker-symbol": "restaurant",
           "marker-color": "#F35B63",
           "marker-size": "large",
-          "city": "Washington, D.C."
+          "titulo": "JugoTerapia"
       }
   }];
 
-  // Add custom popups to each using our custom feature properties
+
   myLayer.on('layeradd', function(e) {
       var marker = e.layer,
           feature = marker.feature;
 
-      // Create custom popup content
-      var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' +
-                              '<img src="' + feature.properties.image + '" />' +
-                              feature.properties.city +
-                          '</a>';
+      var popupContent =  '<h4 target="_blank" class="popup back-gris lobster tamprincipal">' +'<img src="' + feature.properties.image + '" class="impop" />'
+                              +feature.properties.titulo+
+                  '</h4>'+ '<p class="lato verde">Se encuentra frente a la YMCA, a lado de estacionamiento</p>';
 
-      // http://leafletjs.com/reference.html#popup
+
       marker.bindPopup(popupContent,{
           closeButton: false,
           minWidth: 320
@@ -71,6 +70,7 @@
   // Add features to the map
   myLayer.setGeoJSON(geoJson);
         </script>
+        </article>
       </div>
 
     </section>
