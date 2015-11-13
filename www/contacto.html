@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="static/css/main.css">
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+  <title>Jugo Terapia CUU</title>
+  </head>
+  <body>
+    <nav class="back-gris padding-largo text-center">
+      <ul class="sin-punto">
+        <li class="col-md-3 lobster inline-block tambarra">
+          <a href="index.html" class="verde">Jugo Terapia</a>
+        </li>
+        <li class="col-md-3 lato inline-block tambarra">
+          <a href="menu.html" class="grey">Productos</a>
+        </li>
+        <li class="col-md-3 lato inline-block tambarra">
+          <a href="acerca.html" class="grey">Acerca de</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="text-center">
+      <div>
+          <h1 class="lobster tamprincipal rojo">Donde nos encontramos?</h1>
+          <p><strong>1o. de Mayo y Calle 16, Chihuahua, Chih</strong>.</p>
+      </div>
+      <div id="map">
+        <script>
+        L.mapbox.accessToken = 'pk.eyJ1IjoiZGFuaWVscG9rIiwiYSI6ImNpZnN4czR4bTBjZzF0Z2x5bGk4aXdlZjYifQ.ApDqAmmFp3h0sLh0x0-IiA';
+        var map = L.mapbox.map('map', 'mapbox.streets')
+        .setView([28.627727, -106.074559], 16);
+        var myLayer = L.mapbox.featureLayer().addTo(map);
+
+  var geoJson = [{
+      type: 'Feature',
+      "geometry": { "type": "Point", "coordinates": [-106.074559,28.627727 ]},
+      "properties": {
+          "image": "static/imgs/lugar.png",
+          "url": "https://en.wikipedia.org/wiki/Washington,_D.C.",
+          "marker-symbol": "restaurant",
+          "marker-color": "#F35B63",
+          "marker-size": "large",
+          "city": "Washington, D.C."
+      }
+  }];
+
+  // Add custom popups to each using our custom feature properties
+  myLayer.on('layeradd', function(e) {
+      var marker = e.layer,
+          feature = marker.feature;
+
+      // Create custom popup content
+      var popupContent =  '<a target="_blank" class="popup" href="' + feature.properties.url + '">' +
+                              '<img src="' + feature.properties.image + '" />' +
+                              feature.properties.city +
+                          '</a>';
+
+      // http://leafletjs.com/reference.html#popup
+      marker.bindPopup(popupContent,{
+          closeButton: false,
+          minWidth: 320
+      });
+  });
+
+  // Add features to the map
+  myLayer.setGeoJSON(geoJson);
+        </script>
+      </div>
+
+    </section>
+
+  </body>
+
+</html>

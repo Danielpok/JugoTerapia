@@ -1,0 +1,69 @@
+img{
+  width: 80%;
+}
+
+.quitar-float{
+    float: none;
+}
+
+.lobster{
+  font-family: 'Lobster', cursive;
+}
+
+.lato{
+  font-family: 'Lato', sans-serif;
+}
+
+.tamprincipal{
+  font-size: 4em;
+}
+
+.tammediano{
+  font-size: 1.5em;
+}
+
+.verde{
+  color: 01A482;
+}
+
+.grey{
+  color: 424A56;
+}
+
+.rojo{
+    color: F35B63;
+}
+
+.espacio{
+  margin-right: 7pt;
+}
+
+a{
+  font-size: 15pt;
+}
+
+.sin-punto li{
+  list-style-type: none;
+}
+
+.back-gris{
+  background-color: D1D1D1;
+}
+
+.padding-largo{
+  padding: 5px 10px;
+}
+
+.inline-block{
+  float: none;
+  display: inline-block;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    border:3px solid #73AD21;
+    padding: 10px;
+}
+
+#map { position:absolute; top:250px; bottom:250px; width:100%;}
